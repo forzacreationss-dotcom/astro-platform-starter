@@ -1,21 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Forza Creations</h1>
-<p>Handcrafted concrete tables forged with strength and style.<br>
-5000 PSI concrete | Live-edge forms | Black & gold Medusa finish.</p>
-  <video src="/lv_0_20251109235845.mp4" autoplay muted loop playsinline style="width:100%;border-radius:12px;"></video>  <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
+<Layout title="Forza Creations">
+  <section class="text-center py-16 text-gray-100 bg-black min-h-screen">
+    <img src="/images/forza-logo.png" alt="Forza Creations Logo" class="mx-auto mb-8 w-48 h-auto" />
+    <h1 class="text-4xl font-bold mb-4">Forza Creations</h1>
+    <p class="text-lg mb-6">
+      Handcrafted concrete tables forged with strength and style.<br />
+      5000 PSI concrete | Live-edge forms | Black &amp; gold Medusa finish.
     </p>
+    <video src="/lv_0_20251109235845.mp4" autoplay loop muted playsinline class="mx-auto rounded-lg shadow-lg w-3/4"></video>
+  </section>
 </Layout>
