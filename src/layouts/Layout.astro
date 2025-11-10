@@ -2,7 +2,12 @@
 import '../../src/styles/globals.css';
 import '@fontsource-variable/inter/wght.css';
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import Header from '../components/Header.astro';
+import Header <header class="max-w-6xl mx-auto px-6 py-4 flex items-center gap-4">
+  <a href="/" class="flex items-center gap-3">
+    <img src="/images/forza-logo.png" alt="Forza Creations" class="h-12 w-auto" />
+    <span class="text-2xl font-bold tracking-wide">Forza Creations</span>
+  </a>
+</header>
 import Footer from '../components/Footer.astro';
 
 interface Props {
