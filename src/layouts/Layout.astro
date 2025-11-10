@@ -1,23 +1,61 @@
 ---
-import '../../styles/globals.css';
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = "Forza Creations", description = "Handcrafted concrete tables. 5000 PSI concrete · Live-edge forms · Black & gold Medusa finish." } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forza Creations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://forzacreations.com" />
+    <meta property="og:image" content="/images/forza-logo.png" />
+
+    <!-- Basic styles (Tailwind classes on elements) -->
+    <style>
+      :root{
+        --forza-gold:#d3b36a; /* tweak to your gold */
+        --forza-black:#0a0a0a;
+      }
+      body{background:var(--forza-black);color:#e7e7e7}
+      .glass{background:rgba(255,255,255,.06);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.08)}
+      .gold{color:var(--forza-gold)}
+      .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.75rem;border:1px solid rgba(255,255,255,.18)}
+      .btn-primary{background:var(--forza-gold);color:#111;border-color:transparent}
+      .btn-ghost{color:#fff}
+      .shadow-soft{box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    </style>
   </head>
-  <body class="antialiased text-gray-100 bg-black">
-    <header class="max-w-6xl mx-auto px-6 py-4 flex items-center gap-4">
-      <a href="/" class="flex items-center gap-3">
-        <img src="/images/forza-logo.png" alt="Forza Creations" class="h-12 w-auto" />
-        <span class="text-2xl font-bold tracking-wide">Forza Creations</span>
-      </a>
+  <body>
+    <header class="glass shadow-soft" style="position:sticky;top:0;z-index:50">
+      <div class="max-w-6xl mx-auto px-5 py-3 flex items-center gap-3">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/images/forza-logo.png" alt="Forza Creations" style="height:44px;width:auto" />
+          <span class="gold" style="font-size:1.35rem;font-weight:800;letter-spacing:.03em">Forza Creations</span>
+        </a>
+        <nav class="ml-auto hidden sm:flex items-center gap-4">
+          <a href="#work" class="btn btn-ghost">Work</a>
+          <a href="#about" class="btn btn-ghost">About</a>
+          <a href="#contact" class="btn btn-primary">Contact</a>
+        </nav>
+      </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-10">
+    <main class="max-w-6xl mx-auto px-5">
       <slot />
     </main>
+
+    <footer class="max-w-6xl mx-auto px-5 py-12" style="opacity:.7">
+      <div>© {new Date().getFullYear()} Forza Creations • Custom concrete tables</div>
+    </footer>
   </body>
 </html>
